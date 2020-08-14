@@ -19,10 +19,6 @@ parameters:
   default: ''
 - name: 'NuGet.Public.Key'
   default: ''
-  name: 'GitHub.Connection'
-  default: ''
-  name: 'GitHub.Repository'
-  default: ''
 
 steps:
 - task: DotNetCoreCLI@2
