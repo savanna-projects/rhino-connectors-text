@@ -1,0 +1,44 @@
+/**┌ [ Test Meta Data ] ──────────────────────────────────────────┐
+/**│                                                              │
+/**│ Test meta data information for evaluation and analysis.      │
+/**│ [test-id], [test-scenario] and [test-actions] are mandatory. │
+/**│                                                              │
+/**└──────────────────────────────────────────────────────────────┘
+/**
+[test-id]        INTG-60727
+[test-scenario]  Verify that Student Last Name Field Match when Searching by First Name
+[test-priority]  1 - High
+[test-severity]  0 - Critical
+[test-tolerance] 90.5%
+
+/**┌ [ Test Actions ] ────────────────────────────────────────────┐
+/**│                                                              │
+/**│ Specify the actions which will be executed by Rhino.         │
+/**│                                                              │
+/**└──────────────────────────────────────────────────────────────┘
+/**
+[test-actions]
+1. go to url {https://gravitymvctestapplication.azurewebsites.net/student}
+2. send keys {Carson} into {#SearchString} using {css selector}
+3. click on {#SearchButton} using {css selector}
+4. wait {3000} /** will wait 3 seconds (3000 milliseconds), placeholder step.
+5. close browser
+
+/**┌ [ Test Expected Results ] ───────────────────────────────────┐
+/**│                                                              │
+/**│ Specify the assertion which will be evaluated by Rhino.      │
+/**│                                                              │
+/**│ Each assertion must be annotated with the step is it         │
+/**│ evaluating using [<step_referece>].                          │
+/**│                                                              │
+/**│ <step_reference> is the step line number under section       │
+/**│ [test-actions] (i.e. wait {3000} is action #4).              │
+/**│                                                              │
+/**│ Please note, a step can have more than one expected result.  │
+/**│                                                              │
+/**└──────────────────────────────────────────────────────────────┘
+/**
+[test-expected-results]
+[2] verify that {url} match {student}
+[2] verify that {attribute} of {//input[@id='SearchString']} from {value} match {Carson}
+[4] verify that {text} of {//TD[contains(@id,'student_last_name_')]} match {Alexander}

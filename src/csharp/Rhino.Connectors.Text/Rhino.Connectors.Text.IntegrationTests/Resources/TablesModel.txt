@@ -1,0 +1,1 @@
+{"Name":"Tables","Entries":[{"Name":"student last name","Type":"Xpath","Value":"//TD[contains(@id,'student_last_name_')]","Model":"Tables","Comment":"Use for Rhino unit testing with stubs."}],"Context":null}
