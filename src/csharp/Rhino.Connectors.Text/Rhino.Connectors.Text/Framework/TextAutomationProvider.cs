@@ -4,6 +4,7 @@
  * RESOURCES
  */
 using Gravity.Abstraction.Logging;
+using Gravity.Extensions;
 using Gravity.Services.Comet;
 
 using Newtonsoft.Json;
@@ -19,6 +20,8 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+
+using Utilities = Rhino.Api.Extensions.Utilities;
 
 namespace Rhino.Connectors.Text.Framework
 {
@@ -146,8 +149,19 @@ namespace Rhino.Connectors.Text.Framework
             // setup: entries
             var modelsBody = sources.SelectMany(Get);
 
+            // build
+            var models = new List<RhinoPageModel>();
+            foreach (var model in modelsBody)
+            {
+                var isJsonArray = model.IsJson() && model.StartsWith("[") && model.EndsWith("]");
+                var onModels = isJsonArray
+                    ? JsonConvert.DeserializeObject<RhinoPageModel[]>(model)
+                    : new[] { JsonConvert.DeserializeObject<RhinoPageModel>(model) };
+                models.AddRange(onModels);
+            }
+
             // results
-            return modelsBody.Select(JsonConvert.DeserializeObject<RhinoPageModel>);
+            return models;
         }
         #endregion
 
