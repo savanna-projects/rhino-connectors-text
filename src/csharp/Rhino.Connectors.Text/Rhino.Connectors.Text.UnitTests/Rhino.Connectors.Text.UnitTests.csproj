@@ -14,7 +14,7 @@
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
-    <PackageReference Include="Rhino.Api.Simulator" Version="2020.8.25.1" />
+    <PackageReference Include="Rhino.Api.Simulator" Version="2020.8.29.1" />
   </ItemGroup>
 
   <ItemGroup>
