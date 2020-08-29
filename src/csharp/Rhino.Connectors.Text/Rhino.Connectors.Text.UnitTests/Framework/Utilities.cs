@@ -25,7 +25,7 @@ namespace Rhino.Connectors.Text.UnitTests.Framework
         public static RhinoTestCase Parse(string rhinoSpec)
         {
             // factor text parser
-            var textParserType = typeof(TestCaseFactory).Assembly.GetType("Rhino.Api.Parser.Components.TextParser");
+            var textParserType = typeof(RhinoTestCaseFactory).Assembly.GetType("Rhino.Api.Parser.Components.TextParser");
             var textParser = Activator.CreateInstance(textParserType);
 
             // parse
