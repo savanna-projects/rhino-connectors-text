@@ -37,7 +37,7 @@ namespace Rhino.Connectors.Text.Framework
 
         #region *** Constructors ***
         /// <summary>
-        /// Creates a new instance of this Rhino.Api.Simulator.Framework.SimulatorAutomationProvider.
+        /// Creates a new instance of this Rhino.Api.Simulator.Framework.TextAutomationProvider.
         /// </summary>
         /// <param name="configuration">Rhino.Api.Contracts.Configuration.RhinoConfiguration to use with this provider.</param>
         public TextAutomationProvider(RhinoConfiguration configuration)
@@ -45,7 +45,7 @@ namespace Rhino.Connectors.Text.Framework
         { }
 
         /// <summary>
-        /// Creates a new instance of this Rhino.Api.Simulator.Framework.SimulatorAutomationProvider.
+        /// Creates a new instance of this Rhino.Api.Simulator.Framework.TextAutomationProvider.
         /// </summary>
         /// <param name="configuration">Rhino.Api.Contracts.Configuration.RhinoConfiguration to use with this provider.</param>
         /// <param name="types">A collection of <see cref="Type"/> to load for this repository.</param>
@@ -54,7 +54,7 @@ namespace Rhino.Connectors.Text.Framework
         { }
 
         /// <summary>
-        /// Creates a new instance of this Rhino.Api.Simulator.Framework.SimulatorAutomationProvider.
+        /// Creates a new instance of this Rhino.Api.Simulator.Framework.TextAutomationProvider.
         /// </summary>
         /// <param name="configuration">Rhino.Api.Contracts.Configuration.RhinoConfiguration to use with this provider.</param>
         /// <param name="types">A collection of <see cref="Type"/> to load for this repository.</param>

@@ -32,7 +32,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
             };
 
             // execute
-            var testCases = new TextConnector(configuration).TestRun.TestCases;
+            var testCases = new TextConnector(configuration).ProviderManager.TestRun.TestCases;
 
             // assert
             Assert.IsFalse(testCases.Any());
@@ -43,7 +43,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
         public void ConnectNoTestCases()
         {
             // execute
-            var testCases = new TextConnector(new RhinoConfiguration(), Utilities.Types).TestRun.TestCases;
+            var testCases = new TextConnector(new RhinoConfiguration(), Utilities.Types).ProviderManager.TestRun.TestCases;
 
             // assert
             Assert.IsFalse(testCases.Any());
@@ -65,7 +65,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
             };
 
             // execute
-            var testCases = new TextConnector(configuration, Utilities.Types).TestRun.TestCases;
+            var testCases = new TextConnector(configuration, Utilities.Types).ProviderManager.TestRun.TestCases;
 
             // assert
             Assert.AreEqual(expected, actual: testCases.Count());
@@ -86,7 +86,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
             };
 
             // execute
-            var testCases = new TextConnector(configuration, Utilities.Types).TestRun.TestCases;
+            var testCases = new TextConnector(configuration, Utilities.Types).ProviderManager.TestRun.TestCases;
 
             // assert
             Assert.AreEqual(expected: 18, actual: testCases.Count());
@@ -106,7 +106,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
             };
 
             // execute
-            var testCases = new TextConnector(configuration, Utilities.Types).Connect().TestRun.TestCases;
+            var testCases = new TextConnector(configuration, Utilities.Types).Connect().ProviderManager.TestRun.TestCases;
 
             // assert
             Assert.AreEqual(expected: 9, actual: testCases.Count());
@@ -130,7 +130,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
             };
 
             // execute
-            var testCases = new TextConnector(configuration, Utilities.Types).TestRun.TestCases;
+            var testCases = new TextConnector(configuration, Utilities.Types).ProviderManager.TestRun.TestCases;
 
             // assert
             Assert.AreEqual(expected: 18, actual: testCases.Count());
@@ -161,6 +161,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
 
             // execute
             var actualTestStep = new TextConnector(configuration, Utilities.Types)
+                .ProviderManager
                 .TestRun
                 .TestCases
                 .First(i => i.Key == TestKey)
@@ -201,6 +202,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
 
             // execute
             var actualTestStep = new TextConnector(configuration, Utilities.Types)
+                .ProviderManager
                 .TestRun
                 .TestCases
                 .First(i => i.Key == TestKey)
@@ -235,6 +237,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
 
             // execute
             var actual = new TextConnector(configuration, Utilities.Types)
+                .ProviderManager
                 .TestRun
                 .TestCases
                 .First(i => i.Key == TestKey)
@@ -264,6 +267,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
 
             // execute
             var actual = new TextConnector(configuration, Utilities.Types)
+                .ProviderManager
                 .TestRun
                 .TestCases
                 .Count(i => i.Key == TestKey);
@@ -291,6 +295,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
 
             // execute
             var actual = new TextConnector(configuration, Utilities.Types)
+                .ProviderManager
                 .TestRun
                 .TestCases
                 .Count(i => i.Key == TestKey);
@@ -321,6 +326,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
 
             // execute
             var actual = new TextConnector(configuration, Utilities.Types)
+                .ProviderManager
                 .TestRun
                 .TestCases
                 .Where(i => i.Key == TestKey)
@@ -354,6 +360,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
 
             // execute
             var actual = new TextConnector(configuration, Utilities.Types)
+                .ProviderManager
                 .TestRun
                 .TestCases
                 .Where(i => i.Key == TestKey)

@@ -17,7 +17,7 @@ using System.Collections.Generic;
 namespace Rhino.Connectors.Text
 {
     /// <summary>
-    /// Simulator connector for UnitTesting and general behavior purposes.
+    /// Text connector for running plain text as Rhino Automation Specs.
     /// </summary>
     [Connector(Connector.Text)]
     public class TextConnector : RhinoConnector
