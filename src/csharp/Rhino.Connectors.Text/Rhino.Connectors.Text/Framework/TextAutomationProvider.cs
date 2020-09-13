@@ -73,7 +73,7 @@ namespace Rhino.Connectors.Text.Framework
         /// </summary>
         /// <param name="ids">A list of test ids to get test cases by.</param>
         /// <returns>A collection of Rhino.Api.Contracts.AutomationProvider.RhinoTestCase</returns>
-        public override IEnumerable<RhinoTestCase> GetTestCases(params string[] ids)
+        public override IEnumerable<RhinoTestCase> OnGetTestCases(params string[] ids)
         {
             return ids.SelectMany(LoadRepository);
         }
