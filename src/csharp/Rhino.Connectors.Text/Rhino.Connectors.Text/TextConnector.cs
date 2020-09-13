@@ -19,7 +19,10 @@ namespace Rhino.Connectors.Text
     /// <summary>
     /// Text connector for running plain text as Rhino Automation Specs.
     /// </summary>
-    [Connector(Connector.Text)]
+    [Connector(
+        value: Connector.Text,
+        Name = "Connector - Plain Text",
+        Description = "Allows to run Rhino Specs from a plain text input (files, folders or any other text provider).")]
     public class TextConnector : RhinoConnector
     {
         #region *** Constructors ***
