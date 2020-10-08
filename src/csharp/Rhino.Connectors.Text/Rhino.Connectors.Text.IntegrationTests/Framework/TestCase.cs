@@ -247,12 +247,15 @@ namespace Rhino.Connectors.Text.IntegrationTests.Framework
             {
                 Authentication = onAuthentication,
                 Context = onConfigurationContext,
-                Connector = onConnector,
                 DriverParameters = onDriverParameters.ToList(),
                 EngineConfiguration = onEngineConfiguration,
                 Name = "Rhino v2 -Integration Tests",
                 TestsRepository = onTestsRepository,
-                Integration = $"{context.SystemParams["Rhino.Integration"]}"
+                Integration = $"{context.SystemParams["Rhino.Integration"]}",
+                ConnectorConfiguration = new RhinoConnectorConfiguration
+                {
+                    Connector = onConnector
+                }
             };
         }
 
