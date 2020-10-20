@@ -137,12 +137,12 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
         }
 
         [DataTestMethod]
-        //[DataRow(0, ExpectedAction1, "")]
+        [DataRow(0, ExpectedAction1, "")]
         [DataRow(1, ExpectedAction2, ExpectedResult1)]
-        //[DataRow(2, ExpectedAction3, "")]
-        //[DataRow(3, ExpectedAction4, ExpectedResult2)]
-        //[DataRow(4, ExpectedAction5, "")]
-        //[DataRow(5, ExpectedAction6, "")]
+        [DataRow(2, ExpectedAction3, "")]
+        [DataRow(3, ExpectedAction4, ExpectedResult2)]
+        [DataRow(4, ExpectedAction5, "")]
+        [DataRow(5, ExpectedAction6, "")]
         public void ConnectPageModelsContent(int step, string action, string expected)
         {
             // constants
