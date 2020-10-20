@@ -27,7 +27,7 @@ namespace Rhino.Connectors.Text.UnitTests.Framework
         public const string ExpectedAction5 = "5. register parameter {argument_param} on {#css_id} using {css selector} from {href} filter {regular_expression}";
         public const string ExpectedAction6 = "6. close browser";
         public const string ExpectedResult1 =
-            "verify that {url} match {student}\r\n" +
+            "verify that {url} match {(?i)student}\r\n" +
             "verify that {attribute} of {#SearchString} using {css selector} from {value} match {@FirstName}";
         public const string ExpectedResult2 = "verify that {text} of {//TD[contains(@id,'student_last_name_')]} match {@ExpectedLastName}";
 
