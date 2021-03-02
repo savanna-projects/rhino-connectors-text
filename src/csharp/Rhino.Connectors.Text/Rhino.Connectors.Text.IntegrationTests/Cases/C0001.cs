@@ -21,7 +21,7 @@ namespace Rhino.Connectors.Text.IntegrationTests.Cases
             var configuration = context.TestParams[ContextEntry.Configuration] as RhinoConfiguration;
 
             // execute
-            return configuration.GetConnctor().Execute().Actual;
+            return configuration.Execute(Api.Extensions.Utilities.Types).Actual;
         }
     }
 }

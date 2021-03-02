@@ -14,8 +14,8 @@
     <!-- Settings: Integration Testing -->
     <Parameter name="Integration.AttemptsDelay" value="15000" />
     <Parameter name="Integration.NumberOfAttempts" value="3" />
-    <Parameter name="Rhino.UserName" value="" />
-    <Parameter name="Rhino.Password" value="" />
+    <Parameter name="Rhino.UserName" value="Aa123456!" />
+    <Parameter name="Rhino.Password" value="automation@rhino.api" />
     <Parameter name="Rhino.Integration" value="BrowserStack" />
   </TestRunParameters>
 
