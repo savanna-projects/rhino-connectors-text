@@ -23,7 +23,7 @@ using System.Linq;
 
 using Utilities = Rhino.Api.Extensions.Utilities;
 
-namespace Rhino.Connectors.Text.Framework
+namespace Rhino.Connectors.Text
 {
     /// <summary>
     /// Text/Plain connector for using raw text as Rhino Spec.
