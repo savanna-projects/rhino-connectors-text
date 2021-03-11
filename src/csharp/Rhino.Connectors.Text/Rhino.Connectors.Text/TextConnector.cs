@@ -9,7 +9,6 @@ using Rhino.Api;
 using Rhino.Api.Contracts.Attributes;
 using Rhino.Api.Contracts.Configuration;
 using Rhino.Api.Extensions;
-using Rhino.Connectors.Text.Framework;
 
 using System;
 using System.Collections.Generic;
