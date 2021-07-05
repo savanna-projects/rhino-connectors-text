@@ -17,3 +17,12 @@ steps:
     echo Add other tasks to build, test, and deploy your project.
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
+
+- task: GitHubRelease@1
+  inputs:
+    gitHubConnection: 'GitHub connection - Rhino API'
+    repositoryName: '$(Build.Repository.Name)'
+    action: 'edit'
+    target: '$(Build.SourceVersion)'
+    changeLogCompareToRelease: 'lastFullRelease'
+    changeLogType: 'commitBased'
