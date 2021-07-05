@@ -110,7 +110,7 @@ steps:
 - task: GitHubRelease@1
   displayName: 'Create GitHub Tag'
   inputs:
-    gitHubConnection: 'GitHub connection - Gravity API'
+    gitHubConnection: 'github.com'
     repositoryName: 'savanna-projects/rhino-connectors-text'
     action: 'create'
     target: '$(Build.SourceVersion)'
