@@ -8,7 +8,7 @@ trigger:
     - master
 
 pool:
-  vmImage: windows-latest
+  name: Default
 
 variables:
 - group: browserstack.com
