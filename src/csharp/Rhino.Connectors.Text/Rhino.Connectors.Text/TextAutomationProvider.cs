@@ -32,7 +32,7 @@ namespace Rhino.Connectors.Text
     {
         // state: global parameters
         private readonly ILogger logger;
-        private static readonly Orbit client = new Orbit(Utilities.Types);
+        private static readonly Orbit client = new(Utilities.Types);
         private readonly RhinoTestCaseFactory testCaseFactory;
 
         #region *** Constructors ***
@@ -103,7 +103,7 @@ namespace Rhino.Connectors.Text
             var testCases = files.SelectMany(LoadFromFile);
 
             // results
-            logger?.DebugFormat("Total of [{0}] files loaded from [{1}].", files?.Count(), folder);
+            logger?.DebugFormat("Total of [{0}] files loaded from [{1}].", files?.Length, folder);
             return testCases;
         }
 
@@ -111,7 +111,7 @@ namespace Rhino.Connectors.Text
         private IEnumerable<RhinoTestCase> LoadFromFile(string file)
         {
             // constants
-            var separator = new string[] { SpecSection.Separator };
+            var separator = new string[] { Spec.Separator };
             const StringSplitOptions SplitOptions = StringSplitOptions.RemoveEmptyEntries;
 
             // read file
@@ -193,7 +193,7 @@ namespace Rhino.Connectors.Text
             var data = files.Select(i => File.ReadAllText(i).Trim());
 
             // results
-            logger?.DebugFormat("Total of [{0}] files loaded from [{1}].", files?.Count(), source);
+            logger?.DebugFormat("Total of [{0}] files loaded from [{1}].", files?.Length, source);
             return data;
         }
     }
