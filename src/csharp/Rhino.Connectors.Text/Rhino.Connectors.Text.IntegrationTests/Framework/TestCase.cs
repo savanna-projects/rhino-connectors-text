@@ -31,7 +31,7 @@ namespace Rhino.Connectors.Text.IntegrationTests.Framework
         /// <summary>
         /// Gets json settings to comply with Rhino API serialization.
         /// </summary>
-        public JsonSerializerSettings JsonSettings
+        public static JsonSerializerSettings JsonSettings
             => Gravity.Extensions.Utilities.GetJsonSettings<CamelCaseNamingStrategy>();
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace Rhino.Connectors.Text.IntegrationTests.Framework
         private bool ExecuteTestCase(Context context)
         {
             // extract number of retires
-            int.TryParse($"{testContext.Properties["Integration.NumberOfAttempts"]}", out int attemptsOut);
+            _ = int.TryParse($"{testContext.Properties["Integration.NumberOfAttempts"]}", out int attemptsOut);
             NumberOfAttempts = attemptsOut < 1 ? 1 : attemptsOut;
 
             // execute test-case
@@ -369,7 +369,7 @@ namespace Rhino.Connectors.Text.IntegrationTests.Framework
             // results
             return context.TestParams.ContainsKey("Connector")
                 ? $"{context.TestParams["Connector"]}"
-                : Connector.Text;
+                : RhinoConnectors.Text;
         }
         #endregion
     }

@@ -144,7 +144,7 @@ namespace Rhino.Connectors.Text
         /// </summary>
         /// <param name="sources">Sources from or by which to load page models.</param>
         /// <returns>A collection of Rhino.Api.Contracts.AutomationProvider.RhinoPageModel.</returns>
-        public override IEnumerable<RhinoPageModel> GetPageModels(IEnumerable<string> sources)
+        public override IEnumerable<RhinoPageModel> OnGetPageModels(IEnumerable<string> sources)
         {
             // setup: entries
             var modelsBody = sources.SelectMany(Get);

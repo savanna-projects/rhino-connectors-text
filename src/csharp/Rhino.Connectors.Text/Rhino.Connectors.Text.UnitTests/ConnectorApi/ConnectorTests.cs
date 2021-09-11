@@ -137,6 +137,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
         }
 
         [DataTestMethod]
+        [DoNotParallelize]
         [DataRow(0, ExpectedAction1, "")]
         [DataRow(1, ExpectedAction2, ExpectedResult1)]
         [DataRow(2, ExpectedAction3, "")]
@@ -178,6 +179,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
         }
 
         [DataTestMethod]
+        [DoNotParallelize]
         [DataRow(0, ExpectedAction1, "")]
         [DataRow(1, ExpectedAction2, ExpectedResult1)]
         [DataRow(2, ExpectedAction3, "")]
@@ -305,6 +307,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
         }
 
         [DataTestMethod]
+        [DoNotParallelize]
         [DataRow(0, "Carson", "Alexander")]
         [DataRow(1, "Meredith", "Alonso")]
         [DataRow(2, "Arturo", "Anand")]
@@ -339,6 +342,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
         }
 
         [DataTestMethod]
+        [DoNotParallelize]
         [DataRow(0, "Carson", "Alexander")]
         [DataRow(1, "Meredith", "Alonso")]
         [DataRow(2, "Arturo", "Anand")]
