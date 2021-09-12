@@ -32,7 +32,7 @@ namespace Rhino.Connectors.Text
     {
         // state: global parameters
         private readonly ILogger logger;
-        private static readonly Orbit client = new(Utilities.Types);
+        private readonly Orbit client;
         private readonly RhinoTestCaseFactory testCaseFactory;
 
         #region *** Constructors ***
@@ -63,6 +63,7 @@ namespace Rhino.Connectors.Text
             : base(configuration, types, logger)
         {
             this.logger = logger?.Setup(loggerName: nameof(TextAutomationProvider));
+            client = new Orbit(types);
             testCaseFactory = new RhinoTestCaseFactory(client, logger);
         }
         #endregion
