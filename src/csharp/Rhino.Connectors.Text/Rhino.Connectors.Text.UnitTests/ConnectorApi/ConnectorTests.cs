@@ -7,6 +7,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 
 using Rhino.Api.Contracts.Configuration;
+using Rhino.Api.Extensions;
 using Rhino.Api.Simulator.Framework;
 using Rhino.Connectors.Text.UnitTests.Framework;
 
