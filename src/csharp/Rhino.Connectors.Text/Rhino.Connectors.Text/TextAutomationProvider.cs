@@ -64,7 +64,7 @@ namespace Rhino.Connectors.Text
         {
             this.logger = logger?.Setup(loggerName: nameof(TextAutomationProvider));
             client = new Orbit(types);
-            testCaseFactory = new RhinoTestCaseFactory(client, logger);
+            testCaseFactory = new RhinoTestCaseFactory(logger);
         }
         #endregion
 
