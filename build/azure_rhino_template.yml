@@ -64,21 +64,21 @@ steps:
       # save settings
       $runSettings.Save('$(Test.Settings.FileName.Deploy)')
 
-- task: DotNetCoreCLI@2
-  displayName: Unit Tests
-  inputs:
-    command: 'test'
-    projects: '**/*[Uu]nit*[Tt]ests/*.csproj'
-    arguments: '--configuration $(Build.Configuration) -s $(Test.Settings.FileName.Deploy)'
-    testRunTitle: 'Unit Testing --- $(Build.BuildNumber)'
+# - task: DotNetCoreCLI@2
+#   displayName: Unit Tests
+#   inputs:
+#     command: 'test'
+#     projects: '**/*[Uu]nit*[Tt]ests/*.csproj'
+#     arguments: '--configuration $(Build.Configuration) -s $(Test.Settings.FileName.Deploy)'
+#     testRunTitle: 'Unit Testing --- $(Build.BuildNumber)'
 
-- task: DotNetCoreCLI@2
-  displayName: Integration Tests
-  inputs:
-    command: 'test'
-    projects: '**/*[Ii]ntegration*[Tt]ests/*.csproj'
-    arguments: '--configuration $(Build.Configuration) -s $(Test.Settings.FileName.Deploy)'
-    testRunTitle: 'Integration Testing --- $(Build.BuildNumber)'
+# - task: DotNetCoreCLI@2
+#   displayName: Integration Tests
+#   inputs:
+#     command: 'test'
+#     projects: '**/*[Ii]ntegration*[Tt]ests/*.csproj'
+#     arguments: '--configuration $(Build.Configuration) -s $(Test.Settings.FileName.Deploy)'
+#     testRunTitle: 'Integration Testing --- $(Build.BuildNumber)'
 
 - task: PowerShell@2
   displayName: 'cleanup'
