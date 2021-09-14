@@ -14,14 +14,14 @@
     <!-- Settings: Integration Testing -->
     <Parameter name="Integration.AttemptsDelay" value="15000" />
     <Parameter name="Integration.NumberOfAttempts" value="3" />
-    <Parameter name="Rhino.UserName" value="" />
+    <Parameter name="Rhino.UserName" value="automation@rhino.api" />
     <Parameter name="Rhino.Password" value="" />
-    <Parameter name="Rhino.Integration" value="BrowserStack" />
+    <Parameter name="Rhino.Integration" value="" />
   </TestRunParameters>
 
   <MSTest>  
     <Parallelize>
-      <Workers>10</Workers>
+      <Workers>1</Workers>
       <Scope>MethodLevel</Scope>
     </Parallelize>
   </MSTest>
