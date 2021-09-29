@@ -5,7 +5,6 @@
  */
 using Gravity.Abstraction.Logging;
 using Gravity.Extensions;
-using Gravity.Services.Comet;
 
 using Newtonsoft.Json;
 
@@ -28,11 +27,10 @@ namespace Rhino.Connectors.Text
     /// <summary>
     /// Text/Plain connector for using raw text as Rhino Spec.
     /// </summary>
-    internal class TextAutomationProvider : ProviderManager
+    public class TextAutomationProvider : ProviderManager
     {
         // state: global parameters
         private readonly ILogger logger;
-        private readonly Orbit client;
         private readonly RhinoTestCaseFactory testCaseFactory;
 
         #region *** Constructors ***
@@ -63,7 +61,6 @@ namespace Rhino.Connectors.Text
             : base(configuration, types, logger)
         {
             this.logger = logger?.Setup(loggerName: nameof(TextAutomationProvider));
-            client = new Orbit(types);
             testCaseFactory = new RhinoTestCaseFactory(logger);
         }
         #endregion
