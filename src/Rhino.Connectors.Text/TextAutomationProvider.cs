@@ -9,11 +9,11 @@ using Gravity.Extensions;
 using Newtonsoft.Json;
 
 using Rhino.Api;
+using Rhino.Api.Contracts;
 using Rhino.Api.Contracts.AutomationProvider;
 using Rhino.Api.Contracts.Configuration;
 using Rhino.Api.Extensions;
 using Rhino.Api.Parser;
-using Rhino.Api.Parser.Contracts;
 
 using System;
 using System.Collections.Generic;
@@ -109,7 +109,7 @@ namespace Rhino.Connectors.Text
         private IEnumerable<RhinoTestCase> LoadFromFile(string file)
         {
             // constants
-            var separator = new string[] { Spec.Separator };
+            var separator = new string[] { RhinoSpecification.Separator };
             const StringSplitOptions SplitOptions = StringSplitOptions.RemoveEmptyEntries;
 
             // read file
