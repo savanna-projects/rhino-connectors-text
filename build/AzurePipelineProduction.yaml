@@ -8,20 +8,36 @@ trigger:
     - master
 
 pool:
-  name: Default
+  vmImage: windows-2022
 
 variables:
 - group: browserstack.com
 - group: gravity.api
-- group: nuget
+- group: nuget.org
+
 - name: 'Build.Configuration'
   value: 'Release'
-- name: 'Parallel.Workers'
-  value: '5'
-- name: 'Test.Settings.FileName.Deploy'
-  value: './test/azure_settings_deploy.runsettings'
-- name: 'Test.Settings.FileName.Development'
-  value: './test/azure_settings_mstest.runsettings'
 
-steps:
-- template: azure_rhino_template.yml
+- name: 'Parallel.Workers'
+  value: '1'
+
+- name: 'Test.Settings.FileName.Deploy'
+  value: './test/SettingsMsTestDeploy.runsettings'
+
+- name: 'Test.Settings.FileName.Development'
+  value: './test/SettingsMsTest.runsettings'
+
+- name: 'Git.Repository'
+  value: 'savanna-projects/rhino-connectors-text'
+
+- name: 'Git.Connection'
+  value: 'github.com'
+
+- name: 'Git.ReleaseType'
+  value: 'Production'
+
+- name: 'Git.PreviewRelease'
+  value: false
+
+stages:
+- template: AzurePipeline.yaml

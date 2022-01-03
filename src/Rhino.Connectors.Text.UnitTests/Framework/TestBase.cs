@@ -40,7 +40,7 @@ namespace Rhino.Connectors.Text.UnitTests.Framework
         /// <summary>
         /// Gets ChromeDriver driver parameters.
         /// </summary>
-        public IDictionary<string, object> ChromeDriver => new Dictionary<string, object>
+        public static IDictionary<string, object> ChromeDriver => new Dictionary<string, object>
         {
             ["driver"] = "ChromeDriver",
             ["driverBinaries"] = "http://localhost:4444/wd/hub"
@@ -49,7 +49,7 @@ namespace Rhino.Connectors.Text.UnitTests.Framework
         /// <summary>
         /// Gets GeckoDriver driver parameters.
         /// </summary>
-        public IDictionary<string, object> FireFoxDriver => new Dictionary<string, object>
+        public static IDictionary<string, object> FireFoxDriver => new Dictionary<string, object>
         {
             ["driver"] = "FirefoxDriver",
             ["driverBinaries"] = "http://localhost:4444/wd/hub"
@@ -58,7 +58,7 @@ namespace Rhino.Connectors.Text.UnitTests.Framework
         /// <summary>
         /// Gets a JSON RhinoDataProvider for using with RhinoConfiguration.
         /// </summary>
-        public RhinoDataProvider JsonDataProvider => new RhinoDataProvider
+        public static RhinoDataProvider JsonDataProvider => new()
         {
             Type = DataSourceType.Json,
             Source = "[" +
