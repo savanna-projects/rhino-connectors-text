@@ -47,6 +47,7 @@ stages:
 
       - task: DotNetCoreCLI@2
         displayName: Unit Tests
+        condition: eq(variables.InvokeUnitTests, 'true')
         inputs:
           command: 'test'
           projects: '**/*[Uu]nit*[Tt]ests/*.csproj'
@@ -55,6 +56,7 @@ stages:
 
       - task: DotNetCoreCLI@2
         displayName: Integration Tests
+        condition: eq(variables.InvokeIntegrationTests, 'true')
         inputs:
           command: 'test'
           projects: '**/*[Ii]ntegration*[Tt]ests/*.csproj'
@@ -70,6 +72,7 @@ stages:
 
       - task: DotNetCoreCLI@2
         displayName: Create Package
+        condition: eq(variables.CreateAndPushPackages, 'true')
         inputs:
           command: 'pack'
           packagesToPack: '**/!(*[Tt]ests)/*.csproj'
@@ -79,6 +82,7 @@ stages:
 
       - task: DotNetCoreCLI@2
         displayName: Push Packages
+        condition: eq(variables.CreateAndPushPackages, 'true')
         inputs:
           command: custom
           custom: nuget
@@ -90,7 +94,7 @@ stages:
 
   - stage: 'PublishGit'
     dependsOn: 'Build'
-    condition: 'succeeded()'
+    condition: and('succeeded()', eq(variables.CreateGitTag, 'true'))
     jobs:
     - job: 'CraeteRelease'
       displayName: 'Create a GitHub Release & Tag'

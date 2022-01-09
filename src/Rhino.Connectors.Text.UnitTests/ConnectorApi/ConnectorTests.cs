@@ -12,6 +12,8 @@ using Rhino.Api.Simulator.Framework;
 using Rhino.Connectors.Text.UnitTests.Framework;
 
 using System;
+using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;

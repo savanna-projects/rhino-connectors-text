@@ -151,7 +151,11 @@ namespace Rhino.Connectors.Text
             var models = new List<RhinoPageModel>();
             foreach (var model in modelsBody)
             {
-                var isJsonArray = model.IsJson() && model.StartsWith("[") && model.EndsWith("]");
+                if (!model.IsJson())
+                {
+                    continue;
+                }
+                var isJsonArray = model.StartsWith("[") && model.EndsWith("]");
                 var onModels = isJsonArray
                     ? JsonConvert.DeserializeObject<RhinoPageModel[]>(model)
                     : new[] { JsonConvert.DeserializeObject<RhinoPageModel>(model) };

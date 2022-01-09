@@ -1,5 +1,3 @@
-# https://docs.microsoft.com/en-us/azure/devops/pipelines/build/variables?view=azure-devops&tabs=yaml
-
 name: Rhino.Connectors.Text.$(Year:yyyy).$(Month).$(DayOfMonth)$(Rev:.r)
 
 trigger:
@@ -11,13 +9,16 @@ pool:
   vmImage: windows-2022
 
 variables:
+# Library
 - group: browserstack.com
 - group: gravity.api
 - group: nuget.org
 
+# Build
 - name: 'Build.Configuration'
   value: 'Release'
 
+# Test Settings
 - name: 'Parallel.Workers'
   value: '1'
 
@@ -27,6 +28,7 @@ variables:
 - name: 'Test.Settings.FileName.Development'
   value: './test/SettingsMsTest.runsettings'
 
+# Git
 - name: 'Git.Repository'
   value: 'savanna-projects/rhino-connectors-text'
 
@@ -38,6 +40,19 @@ variables:
 
 - name: 'Git.PreviewRelease'
   value: false
+
+# Conditions (switch)
+- name: InvokeUnitTests
+  value: true
+
+- name: InvokeIntegrationTests
+  value: true
+
+- name: CreateAndPushPackages
+  value: true
+
+- name: CreateGitTag
+  value: true
 
 stages:
 - template: AzurePipeline.yaml
