@@ -114,6 +114,7 @@ stages:
 
       - task: GitHubRelease@1
         displayName: 'Create GitHub Tag'
+        condition: eq(variables.CreateGitTag, 'true')
         inputs:
           gitHubConnection: '$(Git.Connection)'
           repositoryName: '$(Git.Repository)'
