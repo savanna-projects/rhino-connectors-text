@@ -42,16 +42,16 @@ variables:
   value: false
 
 # Conditions (switch)
-- name: InvokeUnitTests
+- name: 'InvokeUnitTests'
   value: true
 
-- name: InvokeIntegrationTests
+- name: 'InvokeIntegrationTests'
   value: true
 
-- name: CreateAndPushPackages
+- name: 'CreateAndPushPackages'
   value: true
 
-- name: CreateGitTag
+- name: 'CreateGitTag'
   value: true
 
 stages:
