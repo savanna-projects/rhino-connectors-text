@@ -3,6 +3,8 @@
  * 
  * RESOURCES
  */
+using Gravity.Abstraction.Contracts;
+
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Newtonsoft.Json;
 
