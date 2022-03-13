@@ -171,10 +171,10 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
 
             // get actuals
             var actualAction = actualTestStep.Action;
-            var actualExpected = actualTestStep.Expected;
+            var actualExpected = string.Join(Environment.NewLine, actualTestStep.ExpectedResults.Select(i => i.ExpectedResult));
 
             // assert
-            Assert.AreEqual(expected: action, actual: actualAction);
+            Assert.IsTrue(action.Contains(actualAction));
             Assert.AreEqual(expected: expected, actual: actualExpected);
         }
 
@@ -213,10 +213,10 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
 
             // get actuals
             var actualAction = actualTestStep.Action;
-            var actualExpected = actualTestStep.Expected;
+            var actualExpected = string.Join(Environment.NewLine, actualTestStep.ExpectedResults.Select(i => i.ExpectedResult));
 
             // assert
-            Assert.AreEqual(expected: action, actual: actualAction);
+            Assert.IsTrue(action.Contains(actualAction));
             Assert.AreEqual(expected: expected, actual: actualExpected);
         }
 
