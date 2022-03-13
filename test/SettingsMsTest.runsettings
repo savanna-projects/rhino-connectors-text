@@ -2,7 +2,7 @@
 <RunSettings>
   <TestRunParameters>
     <!-- Settings: Selenium Grid -->
-    <Parameter name="Grid.Endpoint.Rhino" value="D:\AutomationEnvironment\WebDrivers" />
+    <Parameter name="Grid.Endpoint.Rhino" value="E:\AutomationEnvironment\WebDrivers" />
 
     <!-- Settings: Project and Build -->
     <Parameter name="Build.Number" value="Development" />
