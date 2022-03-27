@@ -71,7 +71,7 @@ namespace Rhino.Connectors.Text
         /// </summary>
         /// <param name="ids">A list of test ids to get test cases by.</param>
         /// <returns>A collection of Rhino.Api.Contracts.AutomationProvider.RhinoTestCase</returns>
-        public override IEnumerable<RhinoTestCase> OnGetTestCases(params string[] ids)
+        protected override IEnumerable<RhinoTestCase> OnGetTestCases(params string[] ids)
         {
             return ids.SelectMany(LoadRepository);
         }
@@ -142,7 +142,7 @@ namespace Rhino.Connectors.Text
         /// </summary>
         /// <param name="sources">Sources from or by which to load page models.</param>
         /// <returns>A collection of Rhino.Api.Contracts.AutomationProvider.RhinoPageModel.</returns>
-        public override IEnumerable<RhinoPageModel> OnGetPageModels(IEnumerable<string> sources)
+        protected override IEnumerable<RhinoPageModel> OnGetPageModels(IEnumerable<string> sources)
         {
             // setup: entries
             var modelsBody = sources.SelectMany(Get);

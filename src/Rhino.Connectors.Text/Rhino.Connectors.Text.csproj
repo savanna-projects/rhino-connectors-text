@@ -15,7 +15,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-	  <PackageReference Include="Rhino.Api" Version="2022.3.20.1" />
+	  <PackageReference Include="Rhino.Api" Version="2022.3.27.1" />
 	</ItemGroup>
 
 </Project>
