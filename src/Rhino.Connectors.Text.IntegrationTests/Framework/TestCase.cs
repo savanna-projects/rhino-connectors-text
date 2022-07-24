@@ -285,7 +285,7 @@ namespace Rhino.Connectors.Text.IntegrationTests.Framework
             return new Authentication
             {
                 Password = password,
-                UserName = userName
+                Username = userName
             };
         }
 
