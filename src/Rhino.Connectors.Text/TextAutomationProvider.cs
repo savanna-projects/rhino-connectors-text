@@ -6,8 +6,6 @@
 using Gravity.Abstraction.Logging;
 using Gravity.Extensions;
 
-using Newtonsoft.Json;
-
 using Rhino.Api;
 using Rhino.Api.Contracts;
 using Rhino.Api.Contracts.AutomationProvider;
@@ -19,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.Json;
 
 using Utilities = Rhino.Api.Extensions.Utilities;
 
@@ -146,6 +145,10 @@ namespace Rhino.Connectors.Text
         {
             // setup: entries
             var modelsBody = sources.SelectMany(Get);
+            var options = new JsonSerializerOptions
+            {
+                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+            };
 
             // build
             var models = new List<RhinoPageModel>();
@@ -157,8 +160,8 @@ namespace Rhino.Connectors.Text
                 }
                 var isJsonArray = model.StartsWith("[") && model.EndsWith("]");
                 var onModels = isJsonArray
-                    ? JsonConvert.DeserializeObject<RhinoPageModel[]>(model)
-                    : new[] { JsonConvert.DeserializeObject<RhinoPageModel>(model) };
+                    ? JsonSerializer.Deserialize<RhinoPageModel[]>(model, options)
+                    : new[] { JsonSerializer.Deserialize<RhinoPageModel>(model, options) };
                 models.AddRange(onModels);
             }
 
