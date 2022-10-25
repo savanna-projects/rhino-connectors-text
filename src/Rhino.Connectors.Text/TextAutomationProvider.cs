@@ -10,6 +10,7 @@ using Rhino.Api;
 using Rhino.Api.Contracts;
 using Rhino.Api.Contracts.AutomationProvider;
 using Rhino.Api.Contracts.Configuration;
+using Rhino.Api.Converters;
 using Rhino.Api.Extensions;
 using Rhino.Api.Parser;
 
@@ -147,7 +148,8 @@ namespace Rhino.Connectors.Text
             var modelsBody = sources.SelectMany(Get);
             var options = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = JsonNamingPolicy.CamelCase
+                PropertyNamingPolicy = new NoneJsonNamingPolicy(),
+                DictionaryKeyPolicy = new NoneJsonNamingPolicy()
             };
 
             // build

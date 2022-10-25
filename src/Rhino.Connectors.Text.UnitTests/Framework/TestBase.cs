@@ -13,6 +13,7 @@ using System.IO;
 using Rhino.Api.Contracts.AutomationProvider;
 using Gravity.Services.DataContracts;
 using System.Linq;
+using System.Text.Json;
 
 namespace Rhino.Connectors.Text.UnitTests.Framework
 {
