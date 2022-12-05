@@ -315,8 +315,9 @@ namespace Rhino.Connectors.Text.IntegrationTests.Framework
             var capabilities = new Dictionary<string, object>
             {
                 ["os"] = "Windows",
-                ["os_version"] = "10",
-                ["resolution"] = "1920x1080"
+                ["osVersion"] = "10",
+                ["resolution"] = "1920x1080",
+                ["seleniumVersion"] = "3.14.0"
             };
 
             // results
@@ -326,7 +327,10 @@ namespace Rhino.Connectors.Text.IntegrationTests.Framework
                 {
                     ["driver"] = "ChromeDriver",
                     ["driverBinaries"] = $"{context.SystemParams["Grid.Endpoint.Rhino"]}",
-                    ["capabilities"] = capabilities
+                    ["capabilities"] = new Dictionary<string, object>
+                    {
+                        ["bstack:options"] = capabilities
+                    }
                 }
             };
         }
