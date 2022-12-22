@@ -2,7 +2,7 @@
 <RunSettings>
 	<TestRunParameters>
 		<!-- Settings: Selenium Grid -->
-		<Parameter name="Grid.Endpoint.Rhino" value="https://gravityapi1:pyhBifB6z1YxJv53xLip@hub-cloud.browserstack.com/wd/hub" />
+		<Parameter name="Grid.Endpoint.Rhino" value="" />
 
 		<!-- Settings: Project and Build -->
 		<Parameter name="Build.Number" value="Development" />
@@ -14,8 +14,8 @@
 		<!-- Settings: Integration Testing -->
 		<Parameter name="Integration.AttemptsDelay" value="15000" />
 		<Parameter name="Integration.NumberOfAttempts" value="3" />
-		<Parameter name="Rhino.UserName" value="automation@rhino.api" />
-		<Parameter name="Rhino.Password" value="Aa123456!" />
+		<Parameter name="Rhino.UserName" value="" />
+		<Parameter name="Rhino.Password" value="" />
 		<Parameter name="Rhino.Integration" value="BrowserStack" />
 	</TestRunParameters>
 
