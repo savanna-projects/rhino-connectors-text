@@ -2,7 +2,7 @@
 <RunSettings>
 	<TestRunParameters>
 		<!-- Settings: Selenium Grid -->
-		<Parameter name="Grid.Endpoint.Rhino" value="E:\AutomationEnvironment\WebDrivers" />
+		<Parameter name="Grid.Endpoint.Rhino" value="https://gravityapi1:pyhBifB6z1YxJv53xLip@hub-cloud.browserstack.com/wd/hub" />
 
 		<!-- Settings: Project and Build -->
 		<Parameter name="Build.Number" value="Development" />
@@ -21,7 +21,7 @@
 
 	<MSTest>
 		<Parallelize>
-			<Workers>1</Workers>
+			<Workers>5</Workers>
 			<Scope>MethodLevel</Scope>
 		</Parallelize>
 	</MSTest>

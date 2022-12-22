@@ -314,10 +314,9 @@ namespace Rhino.Connectors.Text.IntegrationTests.Framework
             // capabilities
             var capabilities = new Dictionary<string, object>
             {
-                ["os"] = "Windows",
-                ["osVersion"] = "10",
-                ["resolution"] = "1920x1080",
-                ["seleniumVersion"] = "3.14.0"
+                ["projectName"] = "Rhino API",
+                ["buildName"] = "Text Connector Tests",
+                ["sessionName"] = GetType().Name
             };
 
             // results
