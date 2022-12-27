@@ -4,14 +4,15 @@
  * RESOURCES
  */
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Newtonsoft.Json;
 
 using Rhino.Api.Contracts.Configuration;
 using Rhino.Api.Simulator.Framework;
 using Rhino.Connectors.Text.UnitTests.Framework;
 
 using System;
+using System.IO;
 using System.Linq;
+using System.Text.Json;
 
 using Assert = Microsoft.VisualStudio.TestTools.UnitTesting.Assert;
 using Utilities = Rhino.Api.Extensions.Utilities;
@@ -334,7 +335,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
                 .TestCases
                 .Where(i => i.Key == TestKey)
                 .ElementAt(iteration);
-            var asString = JsonConvert.SerializeObject(actual);
+            var asString = Newtonsoft.Json.JsonConvert.SerializeObject(actual);
 
             // assert
             Assert.IsTrue(asString.Contains(firstName));
@@ -369,7 +370,7 @@ namespace Rhino.Connectors.Text.UnitTests.ConnectorApi
                 .TestCases
                 .Where(i => i.Key == TestKey)
                 .ElementAt(iteration);
-            var asString = JsonConvert.SerializeObject(actual);
+            var asString = Newtonsoft.Json.JsonConvert.SerializeObject(actual);
 
             // assert
             Assert.IsTrue(asString.Contains(firstName));
