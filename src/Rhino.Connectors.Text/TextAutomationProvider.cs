@@ -148,8 +148,7 @@ namespace Rhino.Connectors.Text
             var modelsBody = sources.SelectMany(Get);
             var options = new JsonSerializerOptions
             {
-                PropertyNamingPolicy = new NoneJsonNamingPolicy(),
-                DictionaryKeyPolicy = new NoneJsonNamingPolicy()
+                PropertyNameCaseInsensitive = true,
             };
 
             // build
