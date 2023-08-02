@@ -172,7 +172,7 @@ namespace Rhino.Connectors.Text
                 {
                     continue;
                 }
-                var isJsonArray = model.StartsWith("[") && model.EndsWith("]");
+                var isJsonArray = model.StartsWith('[') && model.EndsWith(']');
                 var onModels = isJsonArray
                     ? JsonSerializer.Deserialize<RhinoPageModel[]>(model, options)
                     : new[] { JsonSerializer.Deserialize<RhinoPageModel>(model, options) };
