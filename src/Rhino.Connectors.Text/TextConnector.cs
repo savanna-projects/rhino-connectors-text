@@ -16,7 +16,7 @@ using System.Collections.Generic;
 namespace Rhino.Connectors.Text
 {
     /// <summary>
-    /// Text connector for running plain text as Rhino Automation Specs.
+    /// Text connector for running plain text as Rhino Automation Specifications.
     /// </summary>
     [Connector(
         value: RhinoConnectors.Text,
