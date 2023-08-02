@@ -370,8 +370,9 @@ namespace Rhino.Connectors.Text.IntegrationTests.Framework
         public virtual string OnConnector(Context context)
         {
             // results
-            return context.TestParams.ContainsKey("Connector")
-                ? $"{context.TestParams["Connector"]}"
+
+            return context.TestParams.TryGetValue("Connector", out var connector)
+                ? $"{connector}"
                 : RhinoConnectors.Text;
         }
         #endregion

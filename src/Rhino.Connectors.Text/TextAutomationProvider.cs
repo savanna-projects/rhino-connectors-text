@@ -18,7 +18,11 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text.Json;
+using System.Text.RegularExpressions;
+
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 using Utilities = Rhino.Api.Extensions.Utilities;
 
@@ -27,7 +31,7 @@ namespace Rhino.Connectors.Text
     /// <summary>
     /// Text/Plain connector for using raw text as Rhino Spec.
     /// </summary>
-    public class TextAutomationProvider : ProviderManager
+    public partial class TextAutomationProvider : ProviderManager
     {
         // state: global parameters
         private readonly ILogger logger;
@@ -114,10 +118,16 @@ namespace Rhino.Connectors.Text
 
             // read file
             var raw = File.ReadAllText(file).Trim();
-            var loadedTestCase = raw.Split(separator, SplitOptions);
+            var loadedTestCases = raw.Split(separator, SplitOptions);
+
+            // normalize
+            for(int i = 0; i < loadedTestCases.Length; i++)
+            {
+                loadedTestCases[i] = FormatRhinoSpec(loadedTestCases[i]);
+            }
 
             // parse test-cases
-            var cases = testCaseFactory.GetTestCases(loadedTestCase);
+            var cases = testCaseFactory.GetTestCases(loadedTestCases);
             logger?.DebugFormat("Total of [{0}] test-cases loaded from \n{1}\n", cases.Count(), file);
 
             // results
@@ -127,6 +137,9 @@ namespace Rhino.Connectors.Text
         // loads a row test case from this repository
         private IEnumerable<RhinoTestCase> LoadFromPlainText(string testCase)
         {
+            // normalize
+            testCase = FormatRhinoSpec(testCase);
+
             // parse test-cases
             var cases = testCaseFactory.GetTestCases(testCase);
             logger?.DebugFormat("Total of [{0}] test-cases loaded from \n{1}\n", cases.Count(), testCase);
@@ -159,7 +172,7 @@ namespace Rhino.Connectors.Text
                 {
                     continue;
                 }
-                var isJsonArray = model.StartsWith("[") && model.EndsWith("]");
+                var isJsonArray = model.StartsWith('[') && model.EndsWith(']');
                 var onModels = isJsonArray
                     ? JsonSerializer.Deserialize<RhinoPageModel[]>(model, options)
                     : new[] { JsonSerializer.Deserialize<RhinoPageModel>(model, options) };
@@ -202,5 +215,54 @@ namespace Rhino.Connectors.Text
             logger?.DebugFormat("Total of [{0}] files loaded from [{1}].", files?.Length, source);
             return data;
         }
+
+        private static string FormatRhinoSpec(string testCase)
+        {
+            List<string> lines = ReplaceRhinoNewLines(testCase);
+            var formattedLines = RemoveActionNumbers(lines);
+            return string.Join(Environment.NewLine, formattedLines);
+
+            static List<string> ReplaceRhinoNewLines(string testCase)
+            {
+                // constants
+                var multilineRegex = FormatRegexes.Multiline();
+
+                // setup
+                var rawLines = testCase.Split(Environment.NewLine);
+                var lines = new List<string>();
+
+                // normalize
+                for (int i = 0; i < rawLines.Length; i++)
+                {
+                    var line = rawLines[i];
+                    var previousLine = rawLines[i - 1 < 0 ? 0 : i - 1];
+                    var isMatch = multilineRegex.IsMatch(line.Trim());
+                    var isPreviousMatch = multilineRegex.IsMatch(previousLine.Trim());
+
+                    if (!isMatch && !isPreviousMatch || isMatch && !isPreviousMatch)
+                    {
+                        lines.Add(line);
+                        continue;
+                    }
+
+                    var index = lines.Count - 1;
+                    var multiline = lines[index];
+
+                    line = ' ' + multilineRegex.Replace(line.Trim(), string.Empty);
+                    multiline = multilineRegex.Replace(multiline.Trim(), string.Empty) + line;
+
+                    lines[index] = multiline;
+                }
+
+                return lines;
+            }
+
+            static IEnumerable<string> RemoveActionNumbers(List<string> lines)
+            {
+                return lines.Select(line => FormatRegexes.ActionNumbers().Replace(line.Trim(), string.Empty));
+            }
+        }
+
+
     }
 }
